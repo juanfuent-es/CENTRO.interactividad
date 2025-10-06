@@ -3,5 +3,8 @@ SISTEMA DE COMPONENTES CSS
 ============================================ */
 
 @import url('./theme.css');
+@import url('./global.css');
 @import url('./scroll-bar.css');
 @import url('./typography.css');
+@import url('./header.css');
+@import url('./footer.css');

@@ -57,9 +57,9 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<header>
+		<header id="main-header" class="container">
 			<!-- navigation -->
-			<nav class="container">
+			<nav class="row">
 				<ul>
 					<li>
 						<a href="./" aria-label="Inicio">
@@ -70,9 +70,9 @@
 			</nav>
 		</header>
 		<main class="container">
-			<section>
+			<section class="row">
 				<header>
-					<h1>CENTRO - Interactividad</h1>
+					<h1>Interactividad.js</h1>
 					<p>Estudio y exploración de interacciones web mediante uso de JavaScript</p>
 				</header>
 				<aside>
@@ -81,15 +81,24 @@
 							<li><a href="#interactividad">Interactividad</a></li>
 							<li><a href="#interactividad-www">Interactividad en la web</a></li>
 							<li><a href="#javascript">Javascript</a></li>
+							<li><a href="#variables">Variables</a></li>
 						</ul>
 					</nav>
 				</aside>
-				<article>
+			</section>
+
+			<hr>
+			<section class="row" id="interactividad">
+				<article class="columns twelve">
 					<h2>Interactividad</h2>
 					<p>Es la capacidad que puede tener un sistema, medios o dispositivos para responder a las acciones de un usuario.</p>
 					<p>Podríamos decir que la interactividad tecnológica es una conversación entre los usuarios y las máquinas, es la base de las experiencias digitales modernas, desde un click hasta instalaciones multimedia.</p>
 				</article>
-				<article>
+			</section>
+
+			<hr>
+			<section class="row" id="interactividad-www">
+				<article class="columns twelve">
 					<h2>Interactividad Web</h2>
 					<p>En un contexto web, esta comunicación se logra gracias a las respuestas del navegador a acciones del usuario.</p>
 					<p>Un usuario puede realizar acciones mediante dispositivos de entrada de datos: como mouse, cámaras, micrófonos, y disparando eventos como clicks, gestos, habla, eventos que generan datos, mismos que son procesados por el sistema y devuelve al usuario en forma de respuestas visuales o auditivas.</p>
@@ -100,7 +109,11 @@
 						<li>Output: Salida - Retroalimentación visible/audible/sensible</li>
 					</ol>
 				</article>
-				<article>
+			</section>
+
+			<hr>
+			<section class="row" id="javascript">
+				<article class="columns twelve">
 					<header>
 						<h2>Javascript</h2>
 						<p>La base de la interactividad en la web</p>
@@ -112,10 +125,7 @@
 					<ul>
 						<li><strong>Navegador:</strong>
 						manipula la página, escucha eventos, guarda datos temporales.</li>
-						<li><strong>Servidor (Node.js):</strong>
-						no lo veremos hoy, pero existe para lógica de negocio.</li>
 					</ul>
-
 					<h3>¿Qué puede hacer en tu interfaz?</h3>
 					<ul>
 						<li>Cambiar contenido y atributos (mostrar/ocultar, actualizar textos e imágenes).</li>
@@ -124,16 +134,36 @@
 						<li>Pedir datos a servicios (APIs) y mostrarlos sin recargar la página.</li>
 					</ul>
 				</article>
-				<article>
-					<h2>Variables y tipos de datos</h2>
-				</article>
-				<article>
-					<h2>Funciones</h2>
+			</section>
+			<hr>
+			<section class="row" id="variables">
+				<article class="columns twelve">
+					<h2>Variables</h2>
+					<p>Las variables son contenedores de datos que nos permiten almacenar y manipular información.</p>
+					<p>En JavaScript, las variables se declaran usando el operador <code>=</code>.</p>
+					<p>Ejemplo:</p>
+					<pre><code>let nombre = "Juan";</code></pre>
+					<p>En este ejemplo, la variable <code>nombre</code>
+						almacena el valor "Juan".</p>
+					<p>Las variables pueden ser de diferentes tipos de datos:</p>
+					<ul>
+						<li>Números: <code>let edad = 25;</code></li>
+						<li>Cadenas de texto: <code>let nombre = "Juan";</code></li>
+						<li>Booleanos: <code>let esMayor = true;</code></li>
+						<li>Objetos: <code>let persona = { nombre: "Juan", edad: 25 };</code></li>
+						<li>Arrays: <code>let numeros = [1, 2, 3, 4, 5];</code></li>
+					</ul>
+					<p>Las variables se pueden reasignar y modificar su valor.</p>
+					<p>Ejemplo:</p>
+					<pre><code>let nombre = "Juan";
+						nombre = "Pedro";
+						console.log(nombre); // "Pedro"</code></pre>
+					<p>Las variables se pueden reasignar y modificar su valor.</p>
 				</article>
 			</section>
 		</main>
 		<!-- main footer -->
-		<footer>
+		<footer class="container" id="main-footer">
 			<small>CENTRO Diseño, Cine y Televisión 2025</small>
 		</footer>
 	</body>
