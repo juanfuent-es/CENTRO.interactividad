@@ -1,0 +1,8 @@
+/* ============================================
+   VARIABLES DE BREAKPOINTS Y COLORES BASE
+   ============================================ */
+:root {
+   --color-bg: #212121;
+   --color-text: #f0f0f0;
+   --color-accent: #EC407A;
+}
