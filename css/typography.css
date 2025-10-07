@@ -61,6 +61,10 @@ h3 {
     font-size: 1.5rem;
 }
 
+.text-red {
+    color: var(--color-accent);
+}
+
 /* ============================================
    RESPONSIVE TIPOGRAFÍA SIMPLIFICADA
    ============================================ */
