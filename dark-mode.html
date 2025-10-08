@@ -60,14 +60,10 @@
 			<article>
 				<header id="hero">
 					<h1>Dark Mode</h1>
-					<p>Comodidad visual | Mayor eficiencia energética<sup>*OLED</sup></p>
-					<p><i><small>*En <b>pantallas OLED</b>, el modo oscuro apaga las celdas luminosas en las áreas negras, reduciendo el consumo y extendiendo la duración de la batería.</small></i></p>
-				</header>
-				<section class="container">
-					<p>Reduce la fatiga visual y aumenta la durabilidad de batería al reducir el consumo de energía en pantallas OLED.</p>
-					<button id="theme-toggle">Toggle Mode</button>
+					<button id="theme-toggle">light_mode()</button>
+					<p>Reduce la fatiga visual y aumenta la durabilidad de batería al reducir el consumo de energía en pantallas OLED</p>
 				</section>
-				<section class="container">
+				<section>
 					<h2>Explicación del Código</h2>
 	
 			<h3>HTML: La Estructura</h3>
@@ -133,29 +129,11 @@
 			</code></pre>
 				</section>
 			</article>
-			<hr>
 		</main>
 		<!-- main footer -->
 		<footer>
 			<small>Centro de Diseño Cine y Televisión</small>
 		</footer>
-		<script>
-			// Selección de elementos del DOM
-			const themeToggleButton = document.getElementById('theme-toggle');
-			const body = document.body;
-	
-			// Añadir el listener al botón
-			themeToggleButton.addEventListener('click', () => {
-				// La función que se ejecuta en cada click
-				body.classList.toggle('dark');
-	
-				// Actualizar el texto del botón para mejorar la experiencia de usuario
-				if (body.classList.contains('dark')) {
-					themeToggleButton.textContent = 'Light Mode';
-				} else {
-					themeToggleButton.textContent = 'Dark Mode';
-				}
-			});
-		</script>
+		<script src="./js/dark-mode.js"></script>
 	</body>
 </html>

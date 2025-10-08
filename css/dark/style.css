@@ -16,6 +16,7 @@ body {
     margin: 0;
     transition: background-color 0.3s, color 0.3s;
     font-size: 14px;
+    line-height: 1.5;
 }
 
 header, footer {
@@ -63,6 +64,13 @@ h1 {
     line-height: .85em;
 }
 
+h1 {
+    font-size: 15vw;
+}
+h1::first-line {
+    font-size: 15.75vw;
+}
+
 pre {
     max-width: 100%;
     overflow-x: auto;
@@ -78,22 +86,36 @@ pre {
         -webkit-text-stroke: 1px var(--light);
         text-shadow: 0px 0px 5px var(--light);
         color: var(--dark);
-        font-size: 15vw;
     }
     h1::first-line {
-        font-size: 15.75vw;
         color: var(--light);
     }
 }
 
+body.dark {
+        background-color: var(--dark);
+        color: var(--light);
+}
+body.dark h1 {
+    -webkit-text-stroke: 1px var(--light);
+    text-shadow: 0px 0px 5px var(--light);
+    color: var(--dark);
+}
+body.dark h1::first-line {
+    color: var(--light);
+}
+
+
 #hero {
     padding: 1em 0;
     margin: 4em 0;
-    font-size: 20px;
+    font-size: 1.1rem;
     text-shadow: 0px 0px 3px #55ffc691;
-    text-wrap-style: balance;
     position: relative;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 main {
@@ -117,12 +139,10 @@ button {
     border: 1px solid var(--light);
     text-transform: uppercase;
     font-family: var(--font-heading);
-    margin: 3em auto;
     display: block;
 }
 
 button:hover {
-    color: var(--light);
-    text-shadow: 0px 0px 5px #beefdf7d;
-    box-shadow: 0px 0px 8px #beefdf40;
+    background: var(--light);
+    color: var(--dark);
 }
