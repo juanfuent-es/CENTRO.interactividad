@@ -23,11 +23,11 @@ header, footer {
     position: fixed;
     left: 0px;
     top: 0px;
-    background-color: var(--dark);
     padding: .75rem 1rem;
 }
 
 #main-header {
+    background-color: var(--dark);
     z-index: 9;
 }
 
@@ -45,11 +45,6 @@ footer {
 
 footer small {
     margin: 1em;
-}
-/* Tema oscuro manual */
-body.dark {
-    background-color: var(--dark);
-    color: var(--light);
 }
 
 h1, h2, h3 {
@@ -75,26 +70,10 @@ pre {
     max-width: 100%;
     overflow-x: auto;
 }
-
-/* Tema oscuro automático del sistema */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: var(--dark);
-        color: var(--light);
-    }
-    h1 {
-        -webkit-text-stroke: 1px var(--light);
-        text-shadow: 0px 0px 5px var(--light);
-        color: var(--dark);
-    }
-    h1::first-line {
-        color: var(--light);
-    }
-}
-
+/* Tema oscuro manual */
 body.dark {
-        background-color: var(--dark);
-        color: var(--light);
+    background-color: var(--dark);
+    color: var(--light);
 }
 body.dark h1 {
     -webkit-text-stroke: 1px var(--light);
