@@ -11,7 +11,7 @@
 		<!-- Tipografías -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=BBH+Sans+Bartle&family=BBH+Sans+Hegarty&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Rubik+Mono+One&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Dark Mode | CENTRO</title>
 		<!--
@@ -48,23 +48,26 @@
 		<meta property="twitter:description" content="Fundamentos de JavaScript para la Interactividad Web: Desarrollo de un botón toggle de Tema (Light/Dark) con HTML y Variables de CSS.">
 		<meta property="twitter:image" content="https://juanfuent-es.github.io/CENTRO.interactividad/img/centro-interactividad-share.png">
 		<meta property="twitter:url" content="https://juanfuent-es.github.io/CENTRO.interactividad/">
-		<link rel="stylesheet" href="./css/dark-mode.css">
+		<link rel="stylesheet" href="./css/dark/style.css">
 	</head>
 	<body>
-		<header class="container">
-			<a href="./" aria-label="Inicio">
+		<header id="main-header">
+			<a href="https://centro.edu.mx/" title="Visita centro.edu.mx" target="_blank">
 				<img src="./img/centro-logo.svg" alt="Logotipo de CENTRO" width="100">
 			</a>
 		</header>
-		<main class="container">
+		<main>
 			<article>
-				<section>
-					<h1>Modo Oscuro 🌙</h1>
-					<p>Reduce la fatiga visual y el consumo de energía en pantallas OLED.</p>
+				<header id="hero">
+					<h1>Dark Mode</h1>
+					<p>Comodidad visual | Mayor eficiencia energética<sup>*OLED</sup></p>
+					<p><i><small>*En <b>pantallas OLED</b>, el modo oscuro apaga las celdas luminosas en las áreas negras, reduciendo el consumo y extendiendo la duración de la batería.</small></i></p>
+				</header>
+				<section class="container">
 					<p>Reduce la fatiga visual y aumenta la durabilidad de batería al reducir el consumo de energía en pantallas OLED.</p>
-					<button id="theme-toggle">Activar Modo Oscuro</button>
+					<button id="theme-toggle">Toggle Mode</button>
 				</section>
-				<section>
+				<section class="container">
 					<h2>Explicación del Código</h2>
 	
 			<h3>HTML: La Estructura</h3>
@@ -72,7 +75,7 @@
 			<pre><code>
 	&lt;body&gt;
 		&lt;h1&gt;Dark Mode&lt;/h1&gt;
-		&lt;button id="theme-toggle"&gt;Activar Modo Oscuro&lt;/button&gt;
+		&lt;button id="theme-toggle"&gt;Dark Mode&lt;/button&gt;
 	&lt;/body&gt;
 			</code></pre>
 			<p>El atributo <code>id="theme-toggle"</code> es fundamental, ya que nos permite identificar y seleccionar este botón de forma única desde JavaScript.</p>
@@ -122,23 +125,20 @@
 	
 		// Opcional: Cambiar el texto del botón
 		if (body.classList.contains('dark')) {
-			themeToggleButton.textContent = 'Activar Modo Claro';
+			themeToggleButton.textContent = 'Light Mode';
 		} else {
-			themeToggleButton.textContent = 'Activar Modo Oscuro';
+			themeToggleButton.textContent = 'Dark Mode';
 		}
 	});
 			</code></pre>
 				</section>
 			</article>
 			<hr>
-	
-			
 		</main>
 		<!-- main footer -->
-		<footer class="container" id="main-footer">
-			<small>CENTRO Diseño, Cine y Televisión 2025</small>
+		<footer>
+			<small>Centro de Diseño Cine y Televisión</small>
 		</footer>
-		
 		<script>
 			// Selección de elementos del DOM
 			const themeToggleButton = document.getElementById('theme-toggle');
@@ -151,9 +151,9 @@
 	
 				// Actualizar el texto del botón para mejorar la experiencia de usuario
 				if (body.classList.contains('dark')) {
-					themeToggleButton.textContent = 'Activar Modo Claro ☀️';
+					themeToggleButton.textContent = 'Light Mode';
 				} else {
-					themeToggleButton.textContent = 'Activar Modo Oscuro 🌙';
+					themeToggleButton.textContent = 'Dark Mode';
 				}
 			});
 		</script>

@@ -1,0 +1,128 @@
+@import url('./scroll-bar.css');
+/* Definición de variables base */
+:root {
+    --light: #beefdf;
+    --dark: #121212;
+    --font-base: 'Google Sans Code', monospace;
+    --font-heading: 'Archivo Black', sans-serif;
+}
+
+/* Estilos base - tema claro */
+body {
+    font-family: var(--font-base);
+    background-color: var(--light);
+    color: var(--dark);
+    padding: 0;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 14px;
+}
+
+header, footer {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: var(--dark);
+    padding: .75rem 1rem;
+}
+
+#main-header {
+    z-index: 9;
+}
+
+header a {
+    display: inline-block;
+}
+
+footer {
+    top: auto;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+}
+
+footer small {
+    margin: 1em;
+}
+/* Tema oscuro manual */
+body.dark {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+}
+
+h1 {
+    font-size: 11vw;
+    padding: 0;
+    margin: 0;
+    line-height: .85em;
+}
+
+pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Tema oscuro automático del sistema */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--dark);
+        color: var(--light);
+    }
+    h1 {
+        -webkit-text-stroke: 1px var(--light);
+        text-shadow: 0px 0px 5px var(--light);
+        color: var(--dark);
+        font-size: 15vw;
+    }
+    h1::first-line {
+        font-size: 15.75vw;
+        color: var(--light);
+    }
+}
+
+#hero {
+    padding: 1em 0;
+    margin: 4em 0;
+    font-size: 20px;
+    text-shadow: 0px 0px 3px #55ffc691;
+    text-wrap-style: balance;
+    position: relative;
+    text-align: left;
+}
+
+main {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 1rem;
+    width: 90%;
+    max-width: 640px;
+    margin: 0 auto;
+    min-width: 290px;
+}
+
+button {
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    background-color: var(--dark);
+    color: var(--light);
+    border: 1px solid var(--light);
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+    margin: 3em auto;
+    display: block;
+}
+
+button:hover {
+    color: var(--light);
+    text-shadow: 0px 0px 5px #beefdf7d;
+    box-shadow: 0px 0px 8px #beefdf40;
+}

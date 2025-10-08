@@ -1,0 +1,31 @@
+:root {
+    --scroll-background: var(--dark);
+    --scroll-foreground: var(--light);
+    --scroll-over: var(--light);
+    --scroll-size: 10px;
+}
+
+::-webkit-scrollbar {
+    background-color: var(--scroll-background);
+    height: var(--scroll-size);
+    width: var(--scroll-size);
+    outline: 1px solid var(--scroll-foreground);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--scroll-background);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-foreground);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scroll-over);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
