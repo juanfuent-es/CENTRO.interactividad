@@ -13,9 +13,9 @@
     "prettier.enable": false,
     "beautify.ignore": ["*.html", "*.htm"],
     "editor.codeActionsOnSave": {
-        "source.fixAll": false,
-        "source.organizeImports": false,
-        "source.formatDocument": false
+        "source.fixAll": "never",
+        "source.organizeImports": "never",
+        "source.formatDocument": "never"
     },
     "[html]": {
         "editor.formatOnSave": false,

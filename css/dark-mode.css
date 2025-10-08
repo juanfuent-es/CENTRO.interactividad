@@ -1,0 +1,39 @@
+/* Definición de temas con variables CSS */
+:root {
+    --background-light: #f0f0f0;
+    --text-light: #333;
+    --background-dark: #333;
+    --text-dark: #f0f0f0;
+    --button-bg: #007bff;
+    --button-text: #fff;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Asignación de estilo para el tema oscuro */
+body.dark {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 1em;
+    margin: 0 auto;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border-radius: 5px;
+}

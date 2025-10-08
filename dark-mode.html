@@ -1,0 +1,161 @@
+<!--
+    @author: JuanFuent.es - Open Source Project
+    All Rights Reversed. Copyleft 2025.
+    Licensed under GNU GPLv3 - 
+    @see './LICENSE' file for details.
+-->
+<!DOCTYPE html>
+<html lang="es-LA">
+	<head>
+		<meta charset="UTF-8">
+		<!-- Tipografías -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Dark Mode | CENTRO</title>
+		<!--
+            Favicon Generator: Real Favicon Generator
+            @generador: https://realfavicongenerator.net
+        -->
+		<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+		<meta name="apple-mobile-web-app-title" content="CENTRO">
+		<!-- 
+            @metadata: OpenGraph
+            @desc: The Open Graph protocol enables any web page to become a rich object in a social graph
+            @see: https://ogp.me/
+        -->
+		<meta name="title" content="Cómo Crear un Modo Oscuro (Dark Mode) con JavaScript y CSS">
+		<meta name='image' content='https://juanfuent-es.github.io/CENTRO.interactividad/img/centro-interactividad-share.png'>
+		<meta name='description' content='Dark Mode'>
+		<meta name='keywords' content='interactividad, web, javascript'>
+		<link rel="canonical" href="https://juanfuent-es.github.io/CENTRO.interactividad/">
+		<!-- Open Graph / Facebook -->
+		<meta property="og:site_name" content="CENTRO">
+		<meta property="og:locale" content="en">
+		<meta property='og:type' content='website'>
+		<meta property='og:title' content='Cómo Crear un Modo Oscuro (Dark Mode) con JavaScript y CSS'>
+		<meta property='og:image' content='https://juanfuent-es.github.io/CENTRO.interactividad/img/centro-interactividad-share.png'>
+		<meta property='og:description' content='Fundamentos de JavaScript para la Interactividad Web: Desarrollo de un botón toggle de Tema (Light/Dark) con HTML y Variables de CSS.'>
+		<meta property="og:url" content="https://juanfuent-es.github.io/CENTRO.interactividad/">
+		<!--
+            @metadata: Twitter Cards
+            @desc: With X Cards, you can attach rich photos, videos and media experiences to Tweets, helping to drive traffic to your website. 
+            @see: https://developer.x.com/en/docs/x-for-websites/cards/overview/markup
+        -->
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:title" content="Cómo Crear un Modo Oscuro (Dark Mode) con JavaScript y CSS">
+		<meta property="twitter:description" content="Fundamentos de JavaScript para la Interactividad Web: Desarrollo de un botón toggle de Tema (Light/Dark) con HTML y Variables de CSS.">
+		<meta property="twitter:image" content="https://juanfuent-es.github.io/CENTRO.interactividad/img/centro-interactividad-share.png">
+		<meta property="twitter:url" content="https://juanfuent-es.github.io/CENTRO.interactividad/">
+		<link rel="stylesheet" href="./css/dark-mode.css">
+	</head>
+	<body>
+		<header class="container">
+			<a href="./" aria-label="Inicio">
+				<img src="./img/centro-logo.svg" alt="Logotipo de CENTRO" width="100">
+			</a>
+		</header>
+		<main class="container">
+			<article>
+				<section>
+					<h1>Modo Oscuro 🌙</h1>
+					<p>Reduce la fatiga visual y el consumo de energía en pantallas OLED.</p>
+					<p>Reduce la fatiga visual y aumenta la durabilidad de batería al reducir el consumo de energía en pantallas OLED.</p>
+					<button id="theme-toggle">Activar Modo Oscuro</button>
+				</section>
+				<section>
+					<h2>Explicación del Código</h2>
+	
+			<h3>HTML: La Estructura</h3>
+			<p>El HTML define la estructura básica de nuestra página. El elemento clave aquí es el <code>&lt;button&gt;</code>, que nos servirá como interruptor (toggle) para cambiar entre temas.</p>
+			<pre><code>
+	&lt;body&gt;
+		&lt;h1&gt;Dark Mode&lt;/h1&gt;
+		&lt;button id="theme-toggle"&gt;Activar Modo Oscuro&lt;/button&gt;
+	&lt;/body&gt;
+			</code></pre>
+			<p>El atributo <code>id="theme-toggle"</code> es fundamental, ya que nos permite identificar y seleccionar este botón de forma única desde JavaScript.</p>
+	
+			<h3>CSS: Los Estilos y Temas</h3>
+			<p>El CSS se encarga de la apariencia. Usamos <strong>variables CSS</strong> (declaradas en <code>:root</code>) para definir nuestras paletas de colores para los temas claro (default) y oscuro. El cambio de tema se logra simplemente añadiendo o quitando la clase <code>.dark</code> al <code>&lt;body&gt;</code>.</p>
+			<pre><code>
+	/* Tema claro (default) */
+	:root {
+		--background-light: #f0f0f0;
+		--text-light: #333;
+		/* ... más variables */
+	}
+	
+	body {
+		background-color: var(--background-light);
+		color: var(--text-light);
+	}
+	
+	/* Tema oscuro */
+	body.dark {
+		background-color: var(--background-dark);
+		color: var(--text-dark);
+	}
+			</code></pre>
+	
+			<h3>JavaScript: La Funcionalidad</h3>
+			<p>Aquí es donde ocurre la magia. JavaScript nos permite manipular el DOM (Document Object Model), que es la representación de nuestro HTML.</p>
+			
+			<ol>
+				<li><strong>Selección de Elementos del DOM:</strong> Primero, "capturamos" los elementos HTML con los que queremos interactuar. Usamos <code>document.getElementById()</code> para el botón y <code>document.body</code> para el cuerpo de la página.</li>
+				<li><strong>Event Listeners:</strong> Un "escuchador de eventos" (<code>addEventListener</code>) espera a que ocurra una acción específica en un elemento. En este caso, esperamos un evento <code>'click'</code> sobre nuestro botón.</li>
+				<li><strong>Funciones:</strong> Una función es un bloque de código que realiza una tarea. Creamos una función que se ejecutará cada vez que el evento 'click' ocurra.</li>
+				<li><strong>Lógica del Toggle:</strong> Dentro de la función, usamos <code>classList.toggle('dark')</code>. Este método es muy útil: si la clase 'dark' no existe en el <code>&lt;body&gt;</code>, la añade; si ya existe, la elimina. Esto activa y desactiva los estilos que definimos en CSS.</li>
+			</ol>
+	
+			<pre><code>
+	// 1. Selección de elementos del DOM
+	const themeToggleButton = document.getElementById('theme-toggle');
+	const body = document.body;
+	
+	// 2. Añadir un Event Listener para el evento 'click'
+	themeToggleButton.addEventListener('click', () => {
+		// 3. Función que se ejecuta al hacer click
+		// 4. Alterna la clase 'dark' en el elemento body
+		body.classList.toggle('dark');
+	
+		// Opcional: Cambiar el texto del botón
+		if (body.classList.contains('dark')) {
+			themeToggleButton.textContent = 'Activar Modo Claro';
+		} else {
+			themeToggleButton.textContent = 'Activar Modo Oscuro';
+		}
+	});
+			</code></pre>
+				</section>
+			</article>
+			<hr>
+	
+			
+		</main>
+		<!-- main footer -->
+		<footer class="container" id="main-footer">
+			<small>CENTRO Diseño, Cine y Televisión 2025</small>
+		</footer>
+		
+		<script>
+			// Selección de elementos del DOM
+			const themeToggleButton = document.getElementById('theme-toggle');
+			const body = document.body;
+	
+			// Añadir el listener al botón
+			themeToggleButton.addEventListener('click', () => {
+				// La función que se ejecuta en cada click
+				body.classList.toggle('dark');
+	
+				// Actualizar el texto del botón para mejorar la experiencia de usuario
+				if (body.classList.contains('dark')) {
+					themeToggleButton.textContent = 'Activar Modo Claro ☀️';
+				} else {
+					themeToggleButton.textContent = 'Activar Modo Oscuro 🌙';
+				}
+			});
+		</script>
+	</body>
+</html>
