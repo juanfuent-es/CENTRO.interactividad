@@ -69,7 +69,9 @@ h1::first-line {
 pre {
     max-width: 100%;
     overflow-x: auto;
+    border: 1px solid currentColor;
 }
+
 /* Tema oscuro manual */
 body.dark {
     background-color: var(--dark);
@@ -115,10 +117,11 @@ button {
     border: none;
     background-color: var(--dark);
     color: var(--light);
-    border: 1px solid var(--light);
+    border: 1px solid currentColor;
     text-transform: uppercase;
     font-family: var(--font-heading);
     display: block;
+    transition: all 0.1s;
 }
 
 button:hover {

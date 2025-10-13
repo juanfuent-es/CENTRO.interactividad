@@ -1,11 +1,14 @@
-/* ============================================
-SISTEMA DE COMPONENTES CSS
-============================================ */
+:root {
+    --dark: #212121;
+    --light: #f0f0f0;
+}
 
-@import url('./theme.css');
-@import url('./global.css');
-@import url('./scroll-bar.css');
-@import url('./typography.css');
-@import url('./header.css');
-@import url('./footer.css');
-@import url('./code.css');
+body {
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+body.dark {
+    background-color: var(--dark);
+    color: var(--light);
+}

@@ -1,29 +1,20 @@
-import Cursor from './cursor.js';
+// Así se declara una variable
+var nombre = "Juan"; // string - tipo cadena de texto
+let edad = 36;
+const PI = Math.PI; // float - tipo flotante
+const TAU = Math.PI * 2; // float - tipo flotante
 
-const CURSOR_COUNT = 5;
-let cursors = [];
+// Valor booleano - Tipos de variable que pueden ser true o false
+let esMayorDeEdad = edad >= 18; // Variable formato camelcase
 
-window.setup = function() {
-	createCanvas(windowWidth, windowHeight);
-	for (let i = 0; i < CURSOR_COUNT; i++) {
-		let cursor = new Cursor({
-			radius: Math.random() * 50 + 10,
-			friction: Math.random() * 0.05 + 0.01,
-		});
-        cursor.setup();
-        cursors.push(cursor);
-	}
-};
-
-window.windowResized = function() {
-	resizeCanvas(windowWidth, windowHeight);
-};
-
-window.draw = function() {
-	background(0);
-    noFill();
-	for (let cursor of cursors) {
-		cursor.update();
-		cursor.draw();
-	}
-};
+nombre = "Luis";
+// Así se declara una función
+function saludar(_nombre="Mundo") {
+    // Así se declara un parámetro de una función
+    alert("Hola " + _nombre);
+}
+// Así se llama a una función
+saludar(); // Llamada a una función sin parámetros
+// Llamada a una función con un parámetro
+saludar(nombre);
+saludar("Ana");

@@ -1,164 +1,23 @@
-<!--
-    @author: JuanFuent.es - Open Source Project
-    All Rights Reversed. Copyleft 2025.
-    Licensed under GNU GPLv3 - 
-    @see './LICENSE' file for details.
--->
 <!DOCTYPE html>
-<html lang="es-LA">
-	<head>
-		<meta charset="UTF-8">
-		<!-- Tipografías -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Interactividad & Javascript | CENTRO</title>
-		<!--
-            Favicon Generator: Real Favicon Generator
-            @generador: https://realfavicongenerator.net
-        -->
-		<link rel="icon" type="image/svg+xml" href="./favicon.svg">
-		<meta name="apple-mobile-web-app-title" content="CENTRO">
-		<!-- 
-            @metadata: OpenGraph
-            @desc: The Open Graph protocol enables any web page to become a rich object in a social graph
-            @see: https://ogp.me/
-        -->
-		<meta name="title" content="CENTRO - Interactividad">
-		<meta name='image' content='https://juanfuent-es.github.io/CENTRO.interactividad/img/centro-interactividad-share.png'>
-		<meta name='description' content='Estudio y exploración de interacciones web mediante uso de JavaScript'>
-		<meta name='keywords' content='interactividad, web, javascript'>
-		<link rel="canonical" href="https://juanfuent-es.github.io/CENTRO.interactividad/">
-		<!-- Open Graph / Facebook -->
-		<meta property="og:site_name" content="CENTRO">
-		<meta property="og:locale" content="en">
-		<meta property='og:type' content='website'>
-		<meta property='og:title' content='Interactividad Web'>
-		<meta property='og:image' content='https://juanfuent-es.github.io/CENTRO.interactividad/img/centro-interactividad-share.png'>
-		<meta property='og:description' content='Estudio y exploración de interacciones web mediante uso de JavaScript'>
-		<meta property="og:url" content="https://juanfuent-es.github.io/CENTRO.interactividad/">
-		<!--
-            @metadata: Twitter Cards
-            @desc: With X Cards, you can attach rich photos, videos and media experiences to Tweets, helping to drive traffic to your website. 
-            @see: https://developer.x.com/en/docs/x-for-websites/cards/overview/markup
-        -->
-		<meta property="twitter:card" content="summary_large_image">
-		<meta property="twitter:title" content="Interactividad Web">
-		<meta property="twitter:description" content="Estudio y exploración de interacciones web mediante uso de JavaScript">
-		<meta property="twitter:image" content="https://juanfuent-es.github.io/CENTRO.interactividad/img/centro-interactividad-share.png">
-		<meta property="twitter:url" content="https://juanfuent-es.github.io/CENTRO.interactividad/">
-		<!-- 
-            # Skeleton.css
-            # A dead simple, responsive boilerplate.
-            # @see: https://cdnjs.com/libraries/skeleton
-        -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-		<link rel="stylesheet" href="./css/style.css">
-	</head>
-	<body>
-		<header id="main-header" class="container">
-			<!-- navigation -->
-			<nav class="row">
-				<ul>
-					<li>
-						<a href="./" aria-label="Inicio">
-							<img src="./img/centro-logo.svg" alt="Logotipo de CENTRO" width="100">
-						</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
-		<main class="container">
-			<section class="row">
-				<header>
-					<h1>Interactividad.js</h1>
-					<p class>Estudio y exploración de interacciones web mediante uso de JavaScript</p>
-				</header>
-				<aside>
-					<nav>
-						<ul>
-							<li><a href="#interactividad">Interactividad</a></li>
-							<li><a href="#interactividad-www">Interactividad en la web</a></li>
-							<li><a href="#javascript">Javascript</a></li>
-							<li><a href="#variables">Variables</a></li>
-						</ul>
-					</nav>
-				</aside>
-			</section>
-
-			<hr>
-			<section class="row" id="interactividad">
-				<article class="columns twelve">
-					<h2>Interactividad</h2>
-					<p>Es la capacidad que puede tener un sistema, medios o dispositivos para responder a las acciones de un usuario.</p>
-					<p>Podríamos decir que la interactividad tecnológica es una conversación entre los usuarios y las máquinas, es la base de las experiencias digitales modernas, desde un click hasta instalaciones multimedia.</p>
-				</article>
-			</section>
-			<hr>
-			<section class="row" id="interactividad-www">
-				<article class="columns twelve">
-					<h2>Interactividad Web</h2>
-					<p>En un contexto web, esta comunicación se logra gracias a las respuestas del navegador a acciones del usuario.</p>
-					<p>Un usuario puede realizar acciones mediante dispositivos de entrada de datos: como mouse, cámaras, micrófonos, y disparando eventos como clicks, gestos, habla, eventos que generan datos, mismos que son procesados por el sistema y devuelve al usuario en forma de respuestas visuales o auditivas.</p>
-					<p>Podemos definir el proceso de interactividad de manera similar a la que se define un programa:</p>
-					<ol>
-						<li>Input: Datos de Entrada - Acciones del usuario</li>
-						<li>Procesos - Procesamiento de datos de las acciones por el sistema</li>
-						<li>Output: Salida - Retroalimentación visible/audible/sensible</li>
-					</ol>
-				</article>
-			</section>
-
-			<hr>
-			<section class="row" id="javascript">
-				<article class="columns twelve">
-					<header>
-						<h2>Javascript</h2>
-						<p>La base de la interactividad en la web</p>
-					</header>
-					<p>Javascript es un lenguaje de programación que nos permite que las interfaces web respondan a las interacciones de un usuario. <br>Se ejecuta  sobre el navegador, no es necesario instalar ningún programa o aplicación externo o adicional. Es un lenguaje nativo en computadoras, el cual nos permite realizar múltiples procesos en la web, desde mensajes de alerta al usuario, validaciones en formularios, hasta animaciones en escenarios 3D.</p>
-					<p>JavaScript (JS) es el lenguaje que permite que las interfaces respondan. HTML estructura, CSS da estilo, <strong>JS da comportamiento</strong>.</p>
-					<hr>
-					<h3>¿Dónde vive JS?</h3>
-					<ul>
-						<li><strong>Navegador:</strong>
-						manipula la página, escucha eventos, guarda datos temporales.</li>
-					</ul>
-					<h3>¿Qué puede hacer en tu interfaz?</h3>
-					<ul>
-						<li>Cambiar contenido y atributos (mostrar/ocultar, actualizar textos e imágenes).</li>
-						<li>Validar formularios antes de enviarlos.</li>
-						<li>Reaccionar a gestos y teclas.</li>
-						<li>Pedir datos a servicios (APIs) y mostrarlos sin recargar la página.</li>
-					</ul>
-				</article>
-			</section>
-			<hr>
-			<section class="row" id="variables">
-				<article class="columns twelve">
-					<h2>Variables</h2>
-					<p>Las variables son contenedores de datos que nos permiten almacenar y manipular información.</p>
-					<p>En JavaScript, las variables se declaran usando el operador <code>=</code>.</p>
-					<p>Ejemplo:</p>
-					<pre><code>let nombre = "Juan";</code></pre>
-					<p>En este ejemplo, la variable <code>nombre</code>
-						almacena el valor "Juan".</p>
-					<p>Las variables pueden ser de diferentes tipos de datos:</p>
-					<ul>
-						<li>Números: <code>let edad = 25;</code></li>
-						<li>Cadenas de texto: <code>let nombre = "Juan";</code></li>
-						<li>Booleanos: <code>let esMayor = true;</code></li>
-						<li>Objetos: <code>let persona = { nombre: "Juan", edad: 25 };</code></li>
-						<li>Arrays: <code>let numeros = [1, 2, 3, 4, 5];</code></li>
-					</ul>
-					<p>Las variables se pueden reasignar y modificar su valor.</p>
-				</article>
-			</section>
-		</main>
-		<!-- main footer -->
-		<footer class="container" id="main-footer">
-			<small>CENTRO Diseño, Cine y Televisión 2025</small>
-		</footer>
-	</body>
+<html lang="es-MX">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Interactividad Web</title>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="dark">
+	<h1>Dark Mode</h1>
+	<button id="toggle-theme-btn">Toggle Dark Mode</button>
+	<!-- <script src="./js/script.js"></script> -->
+	<script src="./js/dark-mode.js"></script>
+	<script>
+		// Esto es un comentario de una sola linea
+		/* 
+		* Esto es un comentario
+		* de varias lineas
+		alert('Hola Mundo');
+		*/
+	</script>
+</body>
 </html>

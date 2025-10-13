@@ -1,6 +1,6 @@
 :root {
-    --scroll-background: var(--color-bg);
-    --scroll-foreground: var(--color-text);
+    --scroll-background: var(--color-text);
+    --scroll-foreground: var(--color-bg);
     --scroll-background-over: var(--color-accent);
     --scroll-size: 10px;
 }
