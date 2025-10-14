@@ -1,14 +1,86 @@
 :root {
-    --dark: #212121;
-    --light: #f0f0f0;
+    --dark: #121212;
+    --light: #beefdf;
+}
+
+html {
+    font-family: sans-serif;
+    font-size: 16px;
 }
 
 body {
     background-color: var(--light);
     color: var(--dark);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
 }
 
 body.dark {
     background-color: var(--dark);
     color: var(--light);
+}
+
+main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    min-width: 40px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark);
+    color: var(--light);
+    border-radius: 50%;
+    font-size: 34px;
+    width: 5rem;
+    height: 5rem;
+}
+
+button:hover {
+    background: var(--light);
+    color: var(--dark);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+h1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+rect, path {
+    color: inherit;
+    fill: currentColor;
+}
+
+a {
+    color: inherit;
 }

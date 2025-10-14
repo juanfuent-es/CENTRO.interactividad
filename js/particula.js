@@ -22,7 +22,7 @@ export default class Particula {
         this.pos.add(this.vel);
         this.alpha = map(this.life, 100, 0, 255, 0);
         this.size = map(this.life, 100, 0, 50, 0);
-        this.color = color(this.red, this.green, this.blue, this.alpha);
+        this.color = color(this.red, this.red, this.red, this.alpha);
         this.life--; // Decremento de vida de 1 unidad
     }
     // Salida
