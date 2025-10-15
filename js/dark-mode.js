@@ -1,3 +1,4 @@
+// 1. Selección de elementos del DOM
 const toggleThemeBtn = document.getElementById('toggle-theme-btn');
 const colorPicker = document.getElementById('color-picker');
 // document.body.classList.remove('dark');
@@ -12,21 +13,24 @@ const colorPicker = document.getElementById('color-picker');
     // accion
 } */
 
+// Función de toggle de tema
 function toggleTheme() {
+    // Alterna la clase 'dark' en el elemento body
     document.body.classList.toggle('dark');
     if (document.body.classList.contains('dark')) {
         toggleThemeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
-        // toggleThemeBtn.textContent = 'Activar Light Mode';
+        // toggleThemeBtn.textContent = 'Light Mode';
     } else {
         toggleThemeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
-        // toggleThemeBtn.textContent = 'Activar Dark Mode';
+        // toggleThemeBtn.textContent = 'Dark Mode';
     }
 }
 
-toggleThemeBtn.addEventListener('click', function() {
-    toggleTheme();
-});
+// Añadir un Event Listener para el evento 'click'
+toggleThemeBtn.addEventListener('click', toggleTheme);
 
-colorPicker.addEventListener('change', function() {
-    document.body.style.color = colorPicker.value;
-});
+if (colorPicker) {
+    colorPicker.addEventListener('change', function() {
+        document.body.style.color = colorPicker.value;
+    });
+}

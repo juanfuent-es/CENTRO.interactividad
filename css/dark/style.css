@@ -20,7 +20,6 @@ body {
 }
 
 header, footer {
-    position: fixed;
     left: 0px;
     top: 0px;
     padding: .75rem 1rem;
@@ -53,16 +52,16 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 11vw;
     padding: 0;
     margin: 0;
     line-height: .85em;
+    font-size: 2rem;
 }
 
-h1 {
+h1.big {
     font-size: 15vw;
 }
-h1::first-line {
+h1.big::first-line {
     font-size: 15.75vw;
 }
 

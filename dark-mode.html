@@ -59,7 +59,7 @@
 		<main>
 			<article>
 				<header id="hero">
-					<h1>Dark Mode</h1>
+					<h1 class="big">Dark Mode</h1>
 					<button id="toggle-theme-btn">light_mode()</button>
 					<p><i>Reduce la fatiga visual y aumenta la durabilidad de batería al reducir el consumo de energía en pantallas OLED</i></p>
 				</header>
@@ -134,24 +134,6 @@
 		<footer>
 			<small>Centro de Diseño Cine y Televisión</small>
 		</footer>
-		<script>
-// 1. Selección de elementos del DOM
-const themeToggleButton = document.getElementById('toggle-theme-btn');
-	const body = document.body;
-	
-	// 2. Añadir un Event Listener para el evento 'click'
-	themeToggleButton.addEventListener('click', () => {
-		// 3. Función que se ejecuta al hacer click
-		// 4. Alterna la clase 'dark' en el elemento body
-		body.classList.toggle('dark');
-	
-		// Opcional: Cambiar el texto del botón
-		if (body.classList.contains('dark')) {
-			themeToggleButton.textContent = 'Light Mode';
-		} else {
-			themeToggleButton.textContent = 'Dark Mode';
-		}
-	});
-		</script>
+		<script src="./js/dark-mode.js"></script>
 	</body>
 </html>
