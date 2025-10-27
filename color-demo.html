@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Generador de Paletas de Color</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        .demo-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            border: 2px dashed #e0e0e0;
+            border-radius: 15px;
+        }
+        
+        .demo-section h2 {
+            color: #555;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .color-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .color-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .color-preview {
+            width: 100%;
+            height: 100px;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+        
+        .color-info h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .color-value {
+            font-family: 'Courier New', monospace;
+            background: #f5f5f5;
+            padding: 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        
+        .color-value:hover {
+            background: #e0e0e0;
+        }
+        
+        .color-picker-demo {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .color-picker-demo input[type="color"] {
+            width: 100px;
+            height: 100px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .css-output {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        
+        .live-demo {
+            background: linear-gradient(45deg, var(--base, #3498db), var(--light, #5dade2));
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .live-demo h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .copy-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            transition: background 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-palette"></i> Demo: Generador de Paletas de Color</h1>
+        
+        <div class="demo-section">
+            <h2>Selecciona un Color Base</h2>
+            <div class="color-picker-demo">
+                <input type="color" id="demo-color-picker" value="#3498db">
+                <p style="margin-top: 1rem; color: #666;">Haz clic para cambiar el color base</p>
+            </div>
+        </div>
+        
+        <div class="color-grid" id="color-grid">
+            <!-- Los colores se generarán dinámicamente -->
+        </div>
+        
+        <div class="demo-section">
+            <h2>Vista Previa en Vivo</h2>
+            <div class="live-demo" id="live-demo">
+                <h2>Este texto cambia con los colores seleccionados</h2>
+                <p>El fondo y los colores se actualizan automáticamente usando las variables CSS generadas.</p>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Código CSS Generado</h2>
+            <div class="css-output" id="css-output">
+                <!-- El código CSS se generará aquí -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Elementos del DOM
+        const colorPicker = document.getElementById('demo-color-picker');
+        const colorGrid = document.getElementById('color-grid');
+        const liveDemo = document.getElementById('live-demo');
+        const cssOutput = document.getElementById('css-output');
+
+        // Colores predefinidos para ejemplos
+        const predefinedColors = [
+            { name: 'Azul', value: '#3498db' },
+            { name: 'Verde', value: '#2ecc71' },
+            { name: 'Rojo', value: '#e74c3c' },
+            { name: 'Naranja', value: '#f39c12' },
+            { name: 'Púrpura', value: '#9b59b6' },
+            { name: 'Rosa', value: '#e91e63' },
+            { name: 'Cian', value: '#1abc9c' },
+            { name: 'Amarillo', value: '#f1c40f' }
+        ];
+
+        // Función para generar paleta de colores
+        function generateColorPalette(baseColor) {
+            try {
+                const color = chroma(baseColor);
+                const darkColor = color.darken(0.4).hex();
+                const lightColor = color.brighten(0.3).hex();
+                
+                return {
+                    dark: darkColor,
+                    base: baseColor,
+                    light: lightColor
+                };
+            } catch (error) {
+                console.error('Error generando paleta:', error);
+                return {
+                    dark: '#2980b9',
+                    base: baseColor,
+                    light: '#5dade2'
+                };
+            }
+        }
+
+        // Función para crear una tarjeta de color
+        function createColorCard(color, label, isBase = false) {
+            const card = document.createElement('div');
+            card.className = 'color-card';
+            
+            card.innerHTML = `
+                <div class="color-preview" style="background-color: ${color}"></div>
+                <div class="color-info">
+                    <h3>${label}</h3>
+                    <div class="color-value" onclick="copyToClipboard('${color}')">
+                        ${color} <button class="copy-btn">Copiar</button>
+                    </div>
+                </div>
+            `;
+            
+            if (isBase) {
+                card.style.border = '3px solid #ff6b6b';
+            }
+            
+            return card;
+        }
+
+        // Función para actualizar la grilla de colores
+        function updateColorGrid(palette) {
+            colorGrid.innerHTML = '';
+            
+            // Agregar colores de la paleta
+            colorGrid.appendChild(createColorCard(palette.dark, 'Oscuro'));
+            colorGrid.appendChild(createColorCard(palette.base, 'Base', true));
+            colorGrid.appendChild(createColorCard(palette.light, 'Claro'));
+            
+            // Agregar algunos colores predefinidos
+            predefinedColors.slice(0, 5).forEach(colorData => {
+                const palette = generateColorPalette(colorData.value);
+                colorGrid.appendChild(createColorCard(palette.base, colorData.name));
+            });
+        }
+
+        // Función para actualizar CSS y vista previa
+        function updateCSSAndPreview(palette) {
+            // Actualizar variables CSS
+            document.documentElement.style.setProperty('--base', palette.base);
+            document.documentElement.style.setProperty('--light', palette.light);
+            document.documentElement.style.setProperty('--dark', palette.dark);
+            
+            // Actualizar código CSS mostrado
+            cssOutput.innerHTML = `
+<span style="color: #68d391;">:root</span> <span style="color: #f7fafc;">{</span>
+  <span style="color: #63b3ed;">--base</span><span style="color: #f7fafc;">:</span> <span style="color: #fbb6ce;">${palette.base}</span><span style="color: #f7fafc;">;</span>
+  <span style="color: #63b3ed;">--light</span><span style="color: #f7fafc;">:</span> <span style="color: #fbb6ce;">${palette.light}</span><span style="color: #f7fafc;">;</span>
+  <span style="color: #63b3ed;">--dark</span><span style="color: #f7fafc;">:</span> <span style="color: #fbb6ce;">${palette.dark}</span><span style="color: #f7fafc;">;</span>
+<span style="color: #f7fafc;">}</span>`;
+        }
+
+        // Función para copiar al portapapeles
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('¡Copiado al portapapeles!');
+            }).catch(err => {
+                console.error('Error copiando:', err);
+            });
+        }
+
+        // Event listener para el color picker
+        colorPicker.addEventListener('input', function() {
+            const selectedColor = colorPicker.value;
+            const palette = generateColorPalette(selectedColor);
+            updateColorGrid(palette);
+            updateCSSAndPreview(palette);
+        });
+
+        // Inicializar con el color por defecto
+        const initialColor = colorPicker.value;
+        const initialPalette = generateColorPalette(initialColor);
+        updateColorGrid(initialPalette);
+        updateCSSAndPreview(initialPalette);
+    </script>
+</body>
+</html>
