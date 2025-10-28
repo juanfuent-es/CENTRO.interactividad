@@ -1,6 +1,6 @@
 let song, fft, amp;
-const bins = 32;
-const smoothing = 0.935;
+const bins = 16;
+const smoothing = 0.915;
 
 // Usamos una variable global para el contenedor de instrucciones para simplificar su acceso
 const toggleSoundBtn = document.getElementById('toggle-sound-btn');
@@ -13,8 +13,8 @@ function preload() {
 
 function setup() {
     // Aseguramos que el canvas se crea y se adjunta el evento de clic
-    const canvas = createCanvas(windowWidth, windowHeight);
-    canvas.mousePressed(toggleSound);
+    createCanvas(windowWidth, windowHeight);
+    toggleSoundBtn.addEventListener('click', toggleSound);
 
     // Inicialización de p5.sound
     amp = new p5.Amplitude();
@@ -24,7 +24,7 @@ function setup() {
     noFill();
 
     // Obtener la referencia al elemento de instrucciones
-    background(0);
+    background(color("#212121"));
     windowResized();
 }
 
@@ -39,19 +39,18 @@ function toggleSound() {
     if (getAudioContext().state !== 'running') {
         userStartAudio(); // Asegura el inicio del contexto de audio
     }
-
     if (song.isPlaying()) {
-        toggleSoundBtn.innerHTML = "Play";
+        toggleSoundBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
         song.pause();
     } else {
-        toggleSoundBtn.innerHTML = "Pause";
+        toggleSoundBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
         song.play();
     }
 }
 
 function draw() {
     // Dibujar un fondo con muy baja opacidad para crear un efecto de rastro/trail
-    background(0);
+    background(color("#212121"));
 
     if (!song.isPlaying()) {
         return; // No dibujar la visualización si la música está pausada
@@ -59,7 +58,7 @@ function draw() {
 
     const spectrum = fft.analyze();
 
-    stroke(255);
+    stroke(color("#EC407A"));
     // Replicación de la lógica de dibujo original
     beginShape();
 
@@ -75,7 +74,7 @@ function draw() {
 
     for (let i = 0; i < values.length; i++) {
         const x = map(i, 0, values.length, 0, width);
-        let yOffset = map(values[i], 0, 255, 0, height / 3);
+        let yOffset = map(values[i], 0, 255, 0, height / 4);
 
         // Alternar la dirección del desplazamiento Y para el efecto "onda"
         if (i % 2 == 0) yOffset *= -1;
